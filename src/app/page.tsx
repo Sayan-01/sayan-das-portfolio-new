@@ -1,65 +1,94 @@
-import Image from "next/image";
+"use client";
+import { motion, useScroll, useTransform } from "motion/react";
+import { ArrowUpRight, Play, ChevronRight, Star, Users, Briefcase, Zap } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import BlurText from "@/components/BlurText";
+import PartnersBar from "@/components/PartnersBar";
+import SectionHeader from "@/components/SectionHeader";
+import About from "@/components/About";
+import TechStack from "@/components/TechStack";
+import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import Services from "@/components/Services";
+import Contact from "@/components/Contact";
+import Navbar from "@/components/Navbar";
+import Wrapper from "@/components/Wrapper";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+
+  // Parallax transforms
+  const videoY = useTransform(scrollY, [0, 1000], [0, 300]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main
+      ref={containerRef}
+      className="relative min-h-screen w-full overflow-x-hidden bg-background"
+    >
+      {/* Background Video with Parallax */}
+      <motion.div
+        style={{ y: videoY }}
+        className="absolute inset-0 z-0 h-screen overflow-hidden"
+      >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/images/hero_bg.jpeg"
+          className="h-full w-full object-cover"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_115329_5e00c9c5-4d69-49b7-94c3-9c31c60bb644.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-background/20 dark:bg-black/40 transition-colors duration-500" />
+      </motion.div>
+
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col">
+        <Navbar isDark={isDark} />
+        <Hero />
+        <About />
+        <section className="py-24 bg-background transition-colors duration-500">
+          <Wrapper>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { label: "Projects Shipped", value: "12+", icon: <Briefcase className="w-5 h-5" /> },
+                { label: "Production Users", value: "500+", icon: <Users className="w-5 h-5" /> },
+                { label: "AI Integrations", value: "8+", icon: <Zap className="w-5 h-5" /> },
+                { label: "Client Satisfaction", value: "100%", icon: <Star className="w-5 h-5" /> },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.8 }}
+                  className="liquid-glass p-8 rounded-[2.5rem] text-center group hover:y-[-5] transition-all"
+                >
+                  <div className="text-foreground/20 mb-4 flex justify-center group-hover:text-foreground/50 transition-colors">{stat.icon}</div>
+                  <div className="text-5xl font-heading italic text-foreground mb-2 tracking-tighter">{stat.value}</div>
+                  <div className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em]">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </Wrapper>
+        </section>
+        <TechStack />
+        <Projects />
+        <Experience />
+        <Services />
+        <Contact />
+        <Footer />
+      </div>
+    </main>
   );
 }
