@@ -58,7 +58,7 @@ export default function Services() {
               transition={{ delay: index * 0.1 }}
               className="liquid-glass p-8 rounded-[2.5rem] hover:bg-foreground/5 transition-colors group"
             >
-              <div className="h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
+              <div className="h-14 w-14 rounded-2xl bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-6 group-hover:scale-110 group-hover:bg-accent-blue group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(59,130,246,0.1)]">{service.icon}</div>
               <h4 className="text-2xl font-heading italic text-foreground mb-4">{service.title}</h4>
               <p className="text-sm text-foreground/60 font-body leading-relaxed">{service.description}</p>
             </motion.div>

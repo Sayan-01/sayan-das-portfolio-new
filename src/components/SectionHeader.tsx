@@ -9,12 +9,12 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ badge, title, description, align = "center" }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-col ${align === "center" ? "items-center text-center" : "items-start text-left"} mb-16`}>
+    <div className={`flex flex-col ${align === "center" ? "items-center text-center" : "items-start text-left"} mb-16 md:mb-18`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="liquid-glass rounded-full px-4 py-1 text-xs font-semibold font-body text-foreground mb-4"
+        className="liquid-glass border-accent-blue/20 rounded-full px-4 py-1 text-xs font-semibold font-body text-accent-blue mb-4 shadow-[0_0_15px_rgba(59,130,246,0.1)]"
       >
         {badge}
       </motion.div>

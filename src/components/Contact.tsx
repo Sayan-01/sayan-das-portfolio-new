@@ -25,7 +25,7 @@ export default function Contact() {
               className="space-y-6"
             >
               <h2 className="text-6xl md:text-8xl font-heading italic text-foreground leading-[0.9] tracking-tight">
-                Let's build <span className="text-foreground/20">extraordinary.</span>
+                Let's build <span className="text-accent-blue">extraordinary.</span>
               </h2>
               <p className="text-xl text-foreground/50 font-body font-light max-w-md leading-relaxed">
                 Currently looking for impactful internships and collaboration opportunities where AI meets engineering.
@@ -46,7 +46,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   whileHover={{ y: -5, scale: 1.1 }}
                   transition={{ delay: i * 0.1 }}
-                  className="h-14 w-14 rounded-full liquid-glass-strong flex items-center justify-center text-foreground/80 hover:text-foreground transition-all border border-foreground/5 shadow-inner"
+                  className="h-14 w-14 rounded-full liquid-glass-strong flex items-center justify-center text-foreground/80 hover:text-accent-blue hover:border-accent-blue/30 transition-all border border-foreground/5 shadow-inner"
                 >
                   {social.icon}
                 </motion.a>
@@ -58,7 +58,7 @@ export default function Contact() {
             <div className="absolute -inset-4 bg-foreground/5 blur-3xl rounded-full opacity-50" />
             <form className="relative space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-3">
+                <div className="space-y-3 flex flex-col">
                   <label className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] ml-6">Name</label>
                   <input
                     type="text"
@@ -66,7 +66,7 @@ export default function Contact() {
                     className="w-full liquid-glass border border-foreground/5 rounded-full px-8 py-5 text-foreground font-body placeholder:text-foreground/20 focus:outline-none focus:border-foreground/20 focus:bg-foreground/[0.02] transition-all"
                   />
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-3 flex flex-col">
                   <label className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] ml-6">Email</label>
                   <input
                     type="email"
@@ -75,7 +75,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-3 flex flex-col">
                 <label className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] ml-6">Message</label>
                 <textarea
                   rows={5}
@@ -86,7 +86,7 @@ export default function Contact() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-foreground text-background rounded-full py-6 text-lg font-bold font-heading italic flex items-center justify-center gap-3 hover:opacity-90 transition-opacity shadow-xl"
+                className="w-full bg-accent-blue text-white rounded-full py-6 text-lg font-bold font-heading italic flex items-center justify-center gap-3 hover:bg-accent-blue/90 transition-all shadow-xl shadow-accent-blue/20"
               >
                 Send Message
                 <Send className="h-5 w-5" />

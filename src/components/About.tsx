@@ -18,15 +18,20 @@ export default function About() {
           {/* Profile Image / Visual */}
           <div className="">
             <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 liquid-glass rounded-[3rem] rotate-6 scale-105 opacity-20" />
-              <div className="absolute inset-0 liquid-glass rounded-[3rem] -rotate-3 scale-105 opacity-40" />
-              <div className="relative h-full w-full liquid-glass rounded-[3rem] overflow-hidden border border-foreground/10">
-                <img
-                  src="https://picsum.photos/seed/sayan/800/800"
-                  alt="Sayan Das"
-                  className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
-                />
+              
+              <div className="relative h-full w-full liquid-glass rounded-4xl overflow-hidden border border-foreground/10">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover transition-all duration-700"
+                >
+                  <source
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </div>
           </div>
@@ -35,7 +40,7 @@ export default function About() {
           <div className="flex-1 space-y-8">
             <div className="space-y-4">
               <h3 className="text-4xl font-heading italic text-foreground leading-tight">
-                I build <span className="text-foreground/40">ecosystems,</span> <br />
+                I build <span className="text-accent-blue">ecosystems,</span> <br />
                 not just code.
               </h3>
               <p className="text-lg text-foreground/80 font-body font-light leading-relaxed">
@@ -57,17 +62,17 @@ export default function About() {
 
             <div className="flex items-center gap-8 pt-4">
               <div>
-                <p className="text-3xl font-heading italic text-foreground">8.03 CGPA</p>
+                <p className="text-3xl font-heading italic text-accent-blue">8.03 CGPA</p>
                 <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">B.Tech CSE</p>
               </div>
               <div className="h-12 w-px bg-foreground/10" />
               <div>
-                <p className="text-3xl font-heading italic text-foreground">Full-Stack</p>
+                <p className="text-3xl font-heading italic text-accent-cyan">Full-Stack</p>
                 <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">AI Specialist</p>
               </div>
               <div className="h-12 w-px bg-foreground/10" />
               <div>
-                <p className="text-3xl font-heading italic text-foreground">Ex Co-Founder</p>
+                <p className="text-3xl font-heading italic text-accent-purple">Ex Co-Founder</p>
                 <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">Azeorex Agency</p>
               </div>
             </div>

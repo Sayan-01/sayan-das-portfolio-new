@@ -161,8 +161,8 @@ export default function Projects() {
               {/* Content Side */}
               <div className="flex-1 space-y-8">
                 <div className="flex items-center gap-4">
-                  <div className="liquid-glass p-3 rounded-2xl text-foreground">{project.icon}</div>
-                  <h3 className="text-4xl font-heading italic text-foreground">{project.title}</h3>
+                  <div className="liquid-glass p-3 rounded-2xl text-accent-blue shadow-[0_0_15px_rgba(59,130,246,0.2)]">{project.icon}</div>
+                  <h3 className="text-4xl font-heading italic text-foreground group-hover:text-accent-blue transition-colors duration-500">{project.title}</h3>
                 </div>
 
                 <div className="space-y-4">
@@ -201,7 +201,7 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 bg-foreground/5 border border-foreground/10 rounded-full text-xs text-foreground/60 font-body"
+                      className="px-3 py-1 bg-accent-blue/5 border border-accent-blue/20 rounded-full text-xs text-accent-blue/80 font-body hover:bg-accent-blue hover:text-white transition-all duration-300"
                     >
                       {t}
                     </span>

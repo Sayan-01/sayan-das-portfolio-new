@@ -10,8 +10,8 @@ const experiences = [
     period: "Jan 2026 - Feb 2026",
     description: "Developing pixel-perfect, production-ready pages from Figma designs using React.js and Astro. Focusing on performance optimization and advanced SEO techniques.",
     icon: <Briefcase className="h-6 w-6" />,
-    color: "from-blue-500/20 to-cyan-500/20"
-   
+    color: "from-blue-600/30 to-cyan-400/30",
+    accent: "text-blue-500"
   },
   {
     role: "Co-Founder & Full-Stack Engineer",
@@ -19,7 +19,8 @@ const experiences = [
     period: "Mar 2024 - Mar 2025",
     description: "Founded and led a web agency specializing in full-stack SaaS. Built 5+ client applications and architected a custom drag-and-drop editor with AI-assisted page generation.",
     icon: <Briefcase className="h-6 w-6" />,
-    color: "from-purple-500/20 to-pink-500/20"
+    color: "from-purple-600/30 to-pink-400/30",
+    accent: "text-purple-500"
   },
   {
     role: "B.Tech in Computer Science",
@@ -27,16 +28,17 @@ const experiences = [
     period: "2023 - 2027",
     description: "Pursuing Engineering with a focus on core CS fundamentals. Maintaining a CGPA of 8.03 while actively shipping production software.",
     icon: <GraduationCap className="h-6 w-6" />,
-    color: "from-emerald-500/20 to-teal-500/20"
+    color: "from-emerald-600/30 to-teal-400/30",
+    accent: "text-emerald-500"
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 bg-background relative overflow-hidden">
+    <section id="experience" className="py-24 bg-background relative">
       {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full pointer-events-none" />
       
       <SectionHeader
         badge="The Path"
@@ -85,10 +87,10 @@ export default function Experience() {
                       </div>
 
                       <div className="space-y-3">
-                        <h4 className="text-4xl lg:text-5xl font-heading italic text-foreground tracking-tighter leading-none group-hover:text-blue-500/90 transition-colors">
+                        <h4 className={`text-4xl lg:text-5xl font-heading italic tracking-tighter leading-none transition-colors duration-500 ${exp.accent}`}>
                           {exp.role}
                         </h4>
-                        <p className="text-sm font-bold text-foreground/40 uppercase tracking-[0.1em]">{exp.company}</p>
+                        <p className="text-sm font-bold text-foreground/60 uppercase tracking-[0.1em]">{exp.company}</p>
                       </div>
 
                       <p className="text-base text-foreground/60 font-body font-light leading-relaxed">

@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import Wrapper from "@/components/Wrapper";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import LiquidChrome from "@/components/LiquidChrome";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <main
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-x-hidden bg-background"
+      className="relative min-h-screen w-full overflow-x-hidden "
     >
       {/* Background Video with Parallax */}
       <motion.div
@@ -58,6 +59,20 @@ export default function Home() {
         <Hero />
         <About />
         <section className="py-24 bg-background transition-colors duration-500">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/hero_bg.jpeg"
+            className="h-full w-full object-cover"
+          >
+            <source
+              src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8"
+              type="video/mp4"
+            />
+          </video>
           <Wrapper>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
@@ -74,9 +89,9 @@ export default function Home() {
                   transition={{ delay: i * 0.1, duration: 0.8 }}
                   className="liquid-glass p-8 rounded-[2.5rem] text-center group hover:y-[-5] transition-all"
                 >
-                  <div className="text-foreground/20 mb-4 flex justify-center group-hover:text-foreground/50 transition-colors">{stat.icon}</div>
-                  <div className="text-5xl font-heading italic text-foreground mb-2 tracking-tighter">{stat.value}</div>
-                  <div className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em]">{stat.label}</div>
+                  <div className="text-accent-blue/40 mb-4 flex justify-center group-hover:text-accent-blue transition-colors">{stat.icon}</div>
+                  <div className="text-5xl font-heading italic text-foreground mb-2 tracking-tighter group-hover:text-accent-blue transition-colors">{stat.value}</div>
+                  <div className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] group-hover:text-foreground/50 transition-colors">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
