@@ -1,10 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowUpRight, Play, ChevronRight, Star, Users, Briefcase, Zap } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import BlurText from "@/components/BlurText";
-import PartnersBar from "@/components/PartnersBar";
-import SectionHeader from "@/components/SectionHeader";
+import { Star, Users, Briefcase, Zap } from "lucide-react";
+import { useState, useRef } from "react";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
@@ -28,7 +25,7 @@ export default function Home() {
   return (
     <main
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-x-hidden "
+      className="relative min-h-screen w-full overflow-x-hidden"
     >
       {/* Background Video with Parallax */}
       <motion.div
@@ -41,7 +38,7 @@ export default function Home() {
           muted
           playsInline
           preload="auto"
-          poster="/images/hero_bg.jpeg"
+          poster="images/hero_bg.png"
           className="h-full w-full object-cover"
         >
           <source
@@ -58,45 +55,6 @@ export default function Home() {
         <Navbar isDark={isDark} />
         <Hero />
         <About />
-        <section className="py-24 bg-background transition-colors duration-500">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/images/hero_bg.jpeg"
-            className="h-full w-full object-cover"
-          >
-            <source
-              src="https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8"
-              type="video/mp4"
-            />
-          </video>
-          <Wrapper>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { label: "Projects Shipped", value: "12+", icon: <Briefcase className="w-5 h-5" /> },
-                { label: "Production Users", value: "500+", icon: <Users className="w-5 h-5" /> },
-                { label: "AI Integrations", value: "8+", icon: <Zap className="w-5 h-5" /> },
-                { label: "Client Satisfaction", value: "100%", icon: <Star className="w-5 h-5" /> },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.8 }}
-                  className="liquid-glass p-8 rounded-[2.5rem] text-center group hover:y-[-5] transition-all"
-                >
-                  <div className="text-accent-blue/40 mb-4 flex justify-center group-hover:text-accent-blue transition-colors">{stat.icon}</div>
-                  <div className="text-5xl font-heading italic text-foreground mb-2 tracking-tighter group-hover:text-accent-blue transition-colors">{stat.value}</div>
-                  <div className="text-[10px] font-black text-foreground/30 uppercase tracking-[0.2em] group-hover:text-foreground/50 transition-colors">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </Wrapper>
-        </section>
         <TechStack />
         <Projects />
         <Experience />

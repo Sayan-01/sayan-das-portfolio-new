@@ -9,7 +9,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ badge, title, description, align = "center" }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-col ${align === "center" ? "items-center text-center" : "items-start text-left"} mb-16 md:mb-18`}>
+    <div className={`flex flex-col ${align === "center" ? "items-center text-center" : "items-start text-left"} mb-10 md:mb-18 sm:px-8 px-5`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function SectionHeader({ badge, title, description, align = "cent
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-lg text-foreground/60 max-w-2xl font-body font-light leading-relaxed"
+          className="md:text-lg text-foreground/60 max-w-2xl font-body font-light leading-relaxed"
         >
           {description}
         </motion.p>

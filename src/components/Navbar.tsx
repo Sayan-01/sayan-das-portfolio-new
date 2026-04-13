@@ -11,7 +11,7 @@ export default function Navbar({ isDark }: NavbarProps) {
     <nav className="fixed top-4 left-0 right-0 z-50 px-5 lg:px-16 flex items-center justify-between">
           {/* Left: Logo */}
           <div className="flex items-center gap-4 group">
-            <div className="h-14 w-14 rounded-2xl bg-foreground flex items-center justify-center text-background font-heading italic text-2xl shadow-xl group-hover:scale-110 transition-transform duration-500">
+            <div className="md:h-14 md:w-14 h-10 w-10 md:rounded-2xl rounded-xl bg-foreground flex items-center justify-center text-background font-heading italic text-2xl shadow-xl group-hover:scale-110 transition-transform duration-500">
               SD
             </div>
           </div>

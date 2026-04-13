@@ -3,8 +3,6 @@ import BlurText from "@/components/BlurText";
 import { ArrowUpRight, Play } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-
-
 const Hero = () => {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -12,14 +10,14 @@ const Hero = () => {
   return (
     <motion.div
       style={{ opacity: heroOpacity, scale: heroScale }}
-      className="h-screen flex flex-col items-center justify-center text-center px-4 mb-24"
+      className="h-screen flex flex-col items-center justify-center text-center px-4"
     >
       {/* Badge */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="liquid-glass-strong rounded-full p-1.5 flex items-center mb-8 border border-foreground/5 shadow-2xl"
+        className="liquid-glass-strong rounded-full p-1.5 flex items-center mb-6 border border-foreground/5 shadow-2xl"
       >
         <span className="bg-foreground text-background rounded-full px-3 py-1 text-[10px] font-black font-body uppercase tracking-wider">Sayan Das</span>
         <span className="text-[11px] font-bold text-foreground/80 px-3 font-body uppercase tracking-widest">Full-Stack Developer & AI SaaS Architect</span>
@@ -39,7 +37,7 @@ const Hero = () => {
         initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-8 text-sm md:text-lg text-foreground/80 max-w-2xl font-body font-light leading-tight"
+        className="mt-6 text-sm md:text-lg text-foreground/80 max-w-2xl font-body font-light leading-tight"
       >
         3rd Year CSE Student. Co-founder of Azeorex. Building production-ready AI SaaS that bridges the gap between complex engineering and human-centric design.
       </motion.p>
@@ -49,7 +47,7 @@ const Hero = () => {
         initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1 }}
-        className="flex items-center gap-6 mt-10"
+        className="flex items-center gap-6 mt-8"
       >
         <a
           href="#projects"
@@ -71,5 +69,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-

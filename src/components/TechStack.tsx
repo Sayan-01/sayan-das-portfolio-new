@@ -13,11 +13,25 @@ const CodeVisual = () => (
       <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
     </div>
     <div className="space-y-1">
-      <p><span className="text-purple-400">const</span> <span className="text-blue-300">stack</span> <span className="text-white/40">=</span> <span className="text-yellow-300">{`{`}</span></p>
-      <p className="pl-4"><span className="text-cyan-300">languages</span><span className="text-white/40">:</span> <span className="text-green-300">[&quot;TypeScript&quot;, &quot;C++&quot;]</span>,</p>
-      <p className="pl-4"><span className="text-cyan-300">passion</span><span className="text-white/40">:</span> <span className="text-green-300">&quot;building ecosystems&quot;</span>,</p>
-      <p className="pl-4"><span className="text-cyan-300">coffeeCups</span><span className="text-white/40">:</span> <span className="text-orange-300">Infinity</span>,</p>
-      <p><span className="text-yellow-300">{`}`}</span><span className="text-white/40">;</span></p>
+      <p>
+        <span className="text-purple-400">const</span> <span className="text-blue-300">stack</span> <span className="text-white/40">=</span> <span className="text-yellow-300">{`{`}</span>
+      </p>
+      <p className="pl-4">
+        <span className="text-cyan-300">languages</span>
+        <span className="text-white/40">:</span> <span className="text-green-300">[&quot;TypeScript&quot;, &quot;C++&quot;]</span>,
+      </p>
+      <p className="pl-4">
+        <span className="text-cyan-300">passion</span>
+        <span className="text-white/40">:</span> <span className="text-green-300">&quot;building ecosystems&quot;</span>,
+      </p>
+      <p className="pl-4">
+        <span className="text-cyan-300">coffeeCups</span>
+        <span className="text-white/40">:</span> <span className="text-orange-300">Infinity</span>,
+      </p>
+      <p>
+        <span className="text-yellow-300">{`}`}</span>
+        <span className="text-white/40">;</span>
+      </p>
     </div>
     <motion.div
       className="absolute bottom-3 right-3 w-2 h-4 bg-blue-400"
@@ -58,100 +72,6 @@ const FrontendVisual = () => (
   </div>
 );
 
-const BackendVisual = () => (
-  <div></div>
-);
-
-const AIVisual = () => (
-  <div className="relative w-full h-full min-h-[180px] rounded-2xl overflow-hidden bg-[#0d0d14] border border-white/5 p-5">
-    {/* Neural network SVG */}
-    <svg viewBox="0 0 300 200" className="w-full h-full" fill="none">
-      <defs>
-        <linearGradient id="ai-grad-1" x1="0" y1="0" x2="300" y2="200">
-          <stop offset="0%" stopColor="#a855f7" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
-        </linearGradient>
-      </defs>
-      {/* Connections */}
-      {[
-        [40, 40, 150, 30], [40, 40, 150, 100], [40, 40, 150, 170],
-        [40, 100, 150, 30], [40, 100, 150, 100], [40, 100, 150, 170],
-        [40, 160, 150, 30], [40, 160, 150, 100], [40, 160, 150, 170],
-        [150, 30, 260, 70], [150, 30, 260, 130],
-        [150, 100, 260, 70], [150, 100, 260, 130],
-        [150, 170, 260, 70], [150, 170, 260, 130],
-      ].map(([x1, y1, x2, y2], i) => (
-        <motion.line
-          key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-          stroke="url(#ai-grad-1)" strokeWidth="0.8"
-          initial={{ pathLength: 0, opacity: 0.3 }}
-          animate={{ pathLength: 1, opacity: [0.2, 0.6, 0.2] }}
-          transition={{ duration: 3, delay: i * 0.1, repeat: Infinity }}
-        />
-      ))}
-      {/* Nodes — Input layer */}
-      {[40, 100, 160].map((y) => (
-        <motion.circle key={`in-${y}`} cx={40} cy={y} r={6} fill="#a855f7" fillOpacity={0.8}
-          animate={{ r: [5, 7, 5], fillOpacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-        />
-      ))}
-      {/* Hidden layer */}
-      {[30, 100, 170].map((y) => (
-        <motion.circle key={`hid-${y}`} cx={150} cy={y} r={6} fill="#6366f1" fillOpacity={0.8}
-          animate={{ r: [5, 7, 5], fillOpacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
-        />
-      ))}
-      {/* Output layer */}
-      {[70, 130].map((y) => (
-        <motion.circle key={`out-${y}`} cx={260} cy={y} r={6} fill="#3b82f6" fillOpacity={0.8}
-          animate={{ r: [5, 7, 5], fillOpacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2.5, delay: 1, repeat: Infinity }}
-        />
-      ))}
-    </svg>
-  </div>
-);
-
-const DevOpsVisual = () => (
-  <div className="relative w-full h-full min-h-[180px] rounded-2xl overflow-hidden bg-[#0d0d14] border border-white/5 p-4 font-mono text-[11px]">
-    <div className="flex items-center gap-2 mb-3">
-      <div className="w-3 h-3 rounded bg-green-500/60" />
-      <span className="text-green-400/80 text-[10px] font-bold">TERMINAL</span>
-    </div>
-    <div className="space-y-2">
-      <div className="flex items-start gap-2">
-        <span className="text-green-400">$</span>
-        <motion.span
-          className="text-white/70"
-          initial={{ width: 0 }}
-          animate={{ width: "auto" }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          docker build -t app:latest .
-        </motion.span>
-      </div>
-      <p className="text-white/30 pl-4">Building image... <span className="text-blue-400">▓▓▓▓▓▓▓▓░░</span> 80%</p>
-      <div className="flex items-start gap-2">
-        <span className="text-green-400">$</span>
-        <span className="text-white/70">git push origin main</span>
-      </div>
-      <p className="text-white/30 pl-4">→ Deploying to <span className="text-cyan-400">Vercel</span></p>
-      <div className="flex items-start gap-2">
-        <span className="text-green-400">$</span>
-        <motion.span
-          className="text-white/70"
-          animate={{ opacity: [1, 0.4, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          ▊
-        </motion.span>
-      </div>
-    </div>
-  </div>
-);
-
 const DesignVisual = () => (
   <div className="relative w-full h-full min-h-[180px] rounded-2xl overflow-hidden bg-[#0d0d14] border border-white/5 p-4">
     {/* Design tool mockup */}
@@ -183,7 +103,6 @@ const DesignVisual = () => (
         />
       ))}
     </div>
-    
   </div>
 );
 
@@ -272,7 +191,7 @@ export default function TechStack() {
   return (
     <section
       id="stack"
-      className="py-24 bg-background relative "
+      className="md:py-16 py-12 bg-background relative"
     >
       {/* Background Glows */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/[0.07] blur-[150px] rounded-full pointer-events-none" />
@@ -286,7 +205,7 @@ export default function TechStack() {
 
       <Wrapper>
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
           {skills.map((skill, index) => {
             const a = accentMap[skill.accent];
             const isWide = skill.span.includes("col-span-2");
@@ -302,17 +221,19 @@ export default function TechStack() {
                 className={`
                   ${skill.span}
                   group relative rounded-3xl overflow-hidden
-                  bg-[#0f0f14] border border-white/[0.06]
-                  hover:border-white/[0.12] transition-all duration-500
+                  liquid-glass
+                  transition-all duration-500
                   hover:${a.glow}
                 `}
               >
                 {/* Hover glow overlay */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-${skill.accent}-500/[0.05] to-transparent pointer-events-none`} />
+                <div
+                  className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-${skill.accent}-500/[0.05] to-transparent pointer-events-none`}
+                />
 
                 <div className={`flex ${isWide ? "flex-row" : "flex-col"} ${isTall ? "flex-col" : ""} h-full`}>
                   {/* Text Content */}
-                  <div className={`p-7 ${isWide && !isTall ? "flex-1" : ""} flex flex-col justify-between z-10`}>
+                  <div className={`p-5 ${isWide && !isTall ? "flex-1" : ""} flex flex-col justify-between z-10`}>
                     <div>
                       {/* Accent dot + Category name */}
                       <div className="flex items-center gap-3 mb-4">
@@ -321,17 +242,13 @@ export default function TechStack() {
                           animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
                           transition={{ duration: 2, repeat: Infinity }}
                         />
-                        <h3 className={`text-2xl lg:text-3xl font-heading italic text-foreground tracking-tight`}>
-                          {skill.name}
-                        </h3>
+                        <h3 className={`text-xl lg:text-2xl font-heading italic text-foreground tracking-tight`}>{skill.name}</h3>
                       </div>
 
-                      <p className="text-sm text-foreground/50 font-body font-light leading-relaxed mb-5 max-w-md">
-                        {skill.description}
-                      </p>
+                      <p className="text-sm text-foreground/50 font-body font-light leading-relaxed mb-3 max-w-md">{skill.description}</p>
 
                       {/* Tech tags */}
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <div className="flex flex-wrap gap-1.5 mb-4">
                         {skill.items.map((item) => (
                           <span
                             key={item}
@@ -355,15 +272,17 @@ export default function TechStack() {
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                     </div>
                   </div>
-{skill.visual ?
-                  <div className={`
+                  {skill.visual ? (
+                    <div
+                      className={`
                     ${isWide && !isTall ? "w-[45%] flex-shrink-0" : "w-full"}
                     ${isTall ? "flex-1" : ""}
                     p-4 ${isWide && !isTall ? "pl-0" : "pt-0"}
-                  `}>
-                    {skill.visual}
-                  </div> : null}
-                  
+                  `}
+                    >
+                      {skill.visual}
+                    </div>
+                  ) : null}
                 </div>
               </motion.div>
             );

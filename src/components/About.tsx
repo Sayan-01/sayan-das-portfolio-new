@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-24 pt-44 bg-background transition-colors duration-500"
+      className="md:py-16 py-12 md:pt-44 pt-24 bg-background transition-colors duration-500"
     >
       <SectionHeader
         badge="The Story"
@@ -18,7 +18,6 @@ export default function About() {
           {/* Profile Image / Visual */}
           <div className="">
             <div className="relative aspect-square max-w-md mx-auto">
-              
               <div className="relative h-full w-full liquid-glass rounded-4xl overflow-hidden border border-foreground/10">
                 <video
                   autoPlay
@@ -37,7 +36,7 @@ export default function About() {
           </div>
 
           {/* Content */}
-          <div className="flex-1 space-y-8">
+          <div className="max-md:w-full md:flex-1 space-y-8">
             <div className="space-y-4">
               <h3 className="text-4xl font-heading italic text-foreground leading-tight">
                 I build <span className="text-accent-blue">ecosystems,</span> <br />

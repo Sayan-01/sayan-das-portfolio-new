@@ -24,8 +24,8 @@ const projects: Project[] = [
     title: "Azeorex AI Builder",
     description: "Full-stack AI-powered SaaS platform that enables users to create and publish websites through a custom editor.",
     problem: "Website building is often slow and requires manual coding for complex layouts.",
-    solution: "Engineered a JSON node-tree architecture using tree data structures for real-time editing with sub-100ms latency.",
-    impact: "Increased user website-creation speed by 60% with integrated OpenAI/Anthropic APIs.",
+    solution: "Engineered a JSON node-tree architecture using tree data structures for real-time editing.",
+    impact: "Increased user website-creation speed by 60% with integrated AI APIs.",
     tech: ["Next.js", "PostgreSQL", "OpenAI", "TypeScript", "Node.js", "Zod", "Framer Motion"],
     achievements: [
       "Built a custom drag-and-drop editor from scratch without third-party library dependencies",
@@ -34,18 +34,14 @@ const projects: Project[] = [
     ],
     liveLink: "https://azeorex.com",
     githubLink: "#",
-    images: [
-      "https://picsum.photos/seed/azeorex1/1200/800",
-      "https://picsum.photos/seed/azeorex2/1200/800",
-      "https://picsum.photos/seed/azeorex3/1200/800"
-    ],
+    images: ["projects/project_1/image1.png", "projects/project_1/image2.png", "projects/project_1/image3.png"],
     icon: <Globe className="h-6 w-6" />,
   },
   {
     title: "Persona-AI",
     description: "AI Content Generator and Analytical Tools for multi-platform content creation.",
-    problem: "Content creators struggle with ideation and performance tracking across different platforms.",
-    solution: "Designed modules for content generation and growth insights using Gemini API and dynamic preference capture.",
+    problem: "Writing, generating, and enhancing content across platforms was not easily possible.",
+    solution: "Persona-driven AI that writes and enhances content instantly according to platform and creator's style.",
     impact: "Improved first-session completion rates through a personalized, dynamic onboarding flow.",
     tech: ["Next.js 14", "PostgreSQL", "Gemini API", "TypeScript", "Tailwind CSS", "Polar"],
     achievements: [
@@ -55,52 +51,59 @@ const projects: Project[] = [
     ],
     liveLink: "#",
     githubLink: "#",
-    images: [
-      "https://picsum.photos/seed/persona1/1200/800",
-      "https://picsum.photos/seed/persona2/1200/800",
-      "https://picsum.photos/seed/persona3/1200/800"
-    ],
+    images: ["projects/project_2/image1.png", "projects/project_2/image2.png", "projects/project_2/image3.png"],
     icon: <Cpu className="h-6 w-6" />,
   },
 ];
 
-const ImageGallery = ({ images, title, liveLink, githubLink }: { images: string[], title: string, liveLink?: string, githubLink?: string }) => {
+const ImageGallery = ({ images, title, liveLink, githubLink }: { images: string[]; title: string; liveLink?: string; githubLink?: string }) => {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
     <div className="flex flex-col gap-4 w-full">
       {/* Main Large Image */}
-      <div className="relative liquid-glass rounded-[2rem] overflow-hidden aspect-[16/10] group border border-foreground/5 shadow-2xl">
+      <div className="relative liquid-glass rounded-3xl aspect-17/11 group shadow-2xl p-2">
         <motion.img
           key={activeIdx}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          
           transition={{ duration: 0.8 }}
           src={images[activeIdx]}
           alt={`${title} main`}
-          className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+          className="w-full h-full object-cover  transition-all duration-700 rounded-2xl"
           referrerPolicy="no-referrer"
         />
-        
+
         {/* Navigation Overlays */}
         <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity">
           <div className="flex gap-4">
-             {liveLink && liveLink !== "#" && (
-                <a href={liveLink} className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                  <ExternalLink className="h-5 w-5" />
-                </a>
-             )}
-             {githubLink && githubLink !== "#" && (
-                <a href={githubLink} className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                  <BsGithub className="h-5 w-5" />
-                </a>
-             )}
+            {liveLink && liveLink !== "#" && (
+              <a
+                href={liveLink}
+                className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+              >
+                <ExternalLink className="h-5 w-5" />
+              </a>
+            )}
+            {githubLink && githubLink !== "#" && (
+              <a
+                href={githubLink}
+                className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
+              >
+                <BsGithub className="h-5 w-5" />
+              </a>
+            )}
           </div>
           <div className="flex gap-2">
-            <button onClick={() => setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1))} className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all">
+            <button
+              onClick={() => setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all"
+            >
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <button onClick={() => setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1))} className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all">
+            <button
+              onClick={() => setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all"
+            >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
@@ -110,14 +113,18 @@ const ImageGallery = ({ images, title, liveLink, githubLink }: { images: string[
       {/* Thumbnails */}
       <div className="grid grid-cols-3 gap-4">
         {images.map((img, i) => (
-          <div 
+          <div
             key={i}
             onClick={() => setActiveIdx(i)}
-            className={`cursor-pointer rounded-2xl overflow-hidden aspect-video border-2 transition-all duration-300 ${
-              activeIdx === i ? "border-foreground scale-95 opacity-100" : "border-transparent opacity-40 hover:opacity-100"
+            className={`cursor-pointer md:rounded-2xl rounded-xl overflow-hidden liquid-glass transition-all duration-300  ${
+              activeIdx === i ? " scale-95 opacity-100" : "opacity-40 hover:opacity-100"
             }`}
           >
-            <img src={img} alt={`${title} thumb ${i}`} className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all" />
+            <img
+              src={img}
+              alt={`${title} thumb ${i}`}
+              className="w-full h-full object-cover  hover: hover:brightness-100 transition-all"
+            />
           </div>
         ))}
       </div>
@@ -129,7 +136,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 px-8 lg:px-16"
+      className="md:py-16 py-12 px-0 lg:px-16"
     >
       <SectionHeader
         badge="The Portfolio"
@@ -150,12 +157,12 @@ export default function Projects() {
             >
               {/* Image Side */}
               <div className="flex-1 w-full relative">
-                 <ImageGallery 
-                    images={project.images} 
-                    title={project.title} 
-                    liveLink={project.liveLink} 
-                    githubLink={project.githubLink} 
-                 />
+                <ImageGallery
+                  images={project.images}
+                  title={project.title}
+                  liveLink={project.liveLink}
+                  githubLink={project.githubLink}
+                />
               </div>
 
               {/* Content Side */}
