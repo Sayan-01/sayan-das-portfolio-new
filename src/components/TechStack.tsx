@@ -152,7 +152,7 @@ const skills = [
     items: ["Figma", "Postman", "Framer Motion", "Polar", "VS Code"],
     accent: "purple",
     visual: <DesignVisual />,
-    span: "md:col-span-2 md:row-span-1", // wide
+    span: "md:col-span-2 md:row-span-1 ", // wide
   },
 ];
 

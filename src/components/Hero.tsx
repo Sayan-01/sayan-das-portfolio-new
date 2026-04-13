@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <motion.div
       style={{ opacity: heroOpacity, scale: heroScale }}
-      className="h-screen flex flex-col items-center justify-center text-center px-4"
+      className="h-dvh flex flex-col items-center justify-center text-center px-4"
     >
       {/* Badge */}
       <motion.div
@@ -19,8 +19,8 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="liquid-glass-strong rounded-full p-1.5 flex items-center mb-6 border border-foreground/5 shadow-2xl"
       >
-        <span className="bg-foreground text-background rounded-full px-3 py-1 text-[10px] font-black font-body uppercase tracking-wider">Sayan Das</span>
-        <span className="text-[11px] font-bold text-foreground/80 px-3 font-body uppercase tracking-widest">Full-Stack Developer & AI SaaS Architect</span>
+        <span className="bg-foreground text-background rounded-full md:px-3 px-1.5 py-1 text-[10px] font-black font-body uppercase tracking-wider">Sayan Das</span>
+        <span className="text-[11px] font-bold text-foreground/80 px-2 font-body uppercase tracking-widest">Full-Stack Developer & AI SaaS Architect</span>
       </motion.div>
 
       {/* Heading */}

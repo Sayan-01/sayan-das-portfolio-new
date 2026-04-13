@@ -59,19 +59,19 @@ export default function About() {
               </div>
             </div>
 
-            <div className="flex items-center gap-8 pt-4">
+            <div className="flex md:items-center  md:gap-8 max-md:justify-between md:pt-4">
               <div>
-                <p className="text-3xl font-heading italic text-accent-blue">8.03 CGPA</p>
+                <p className="md:text-3xl text-xl font-heading italic text-accent-blue">8.03 CGPA</p>
                 <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">B.Tech CSE</p>
               </div>
               <div className="h-12 w-px bg-foreground/10" />
               <div>
-                <p className="text-3xl font-heading italic text-accent-cyan">Full-Stack</p>
-                <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">AI Specialist</p>
+                <p className="md:text-3xl text-xl font-heading italic text-accent-cyan">Full-Stack</p>
+                <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">MERN + Nextjs</p>
               </div>
               <div className="h-12 w-px bg-foreground/10" />
               <div>
-                <p className="text-3xl font-heading italic text-accent-purple">Ex Co-Founder</p>
+                <p className="md:text-3xl text-xl font-heading italic text-accent-purple">Ex Co-Founder</p>
                 <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">Azeorex Agency</p>
               </div>
             </div>
