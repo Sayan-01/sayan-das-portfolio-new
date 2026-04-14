@@ -117,13 +117,13 @@ const ImageGallery = ({ images, title, liveLink, githubLink }: { images: string[
             key={i}
             onClick={() => setActiveIdx(i)}
             className={`cursor-pointer md:rounded-2xl rounded-xl overflow-hidden liquid-glass transition-all duration-300  ${
-              activeIdx === i ? " scale-95 opacity-100" : "opacity-40 hover:opacity-100"
+              activeIdx === i ? "border-white/60 opacity-100" : "opacity-40 hover:opacity-100"
             }`}
           >
             <img
               src={img}
               alt={`${title} thumb ${i}`}
-              className="w-full h-full object-cover  hover: hover:brightness-100 transition-all"
+              className="w-full h-full object-cover hover:brightness-100 transition-all"
             />
           </div>
         ))}
