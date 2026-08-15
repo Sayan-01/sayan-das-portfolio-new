@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import Wrapper from "./Wrapper";
 
 const PROJECTS = [
   {
@@ -33,12 +34,14 @@ export default function Projects() {
       id="work"
       className="py-[120px]"
     >
-      <div className="max-w-maxw mx-auto px-5 sm:px-8">
+      <Wrapper>
         <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">
           <div>
-            <div className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-flame-1 inline-flex items-center gap-[9px] mb-[18px] font-medium before:content-[''] before:w-[14px] before:h-[1px] before:bg-flame-1 before:inline-block">Selected Work</div>
+            <div className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-flame-1 inline-flex items-center gap-[9px] mb-[18px] font-medium before:content-[''] before:w-[14px] before:h-[1px] before:bg-flame-1 before:inline-block">
+              Selected Work
+            </div>
             <Reveal>
-              <h2 className="text-[clamp(30px,4vw,44px)] max-w-[600px] font-bold font-display text-text">Featured projects.</h2>
+              <h2 className="text-[clamp(2.1rem,4.6vw,3.4rem)] max-w-[600px] font-bold font-display text-text">Featured projects.</h2>
             </Reveal>
           </div>
           <Reveal>
@@ -79,7 +82,7 @@ export default function Projects() {
             </div>
           </Reveal>
         ))}
-      </div>
+      </Wrapper>
     </section>
   );
 }

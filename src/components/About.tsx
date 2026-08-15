@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import Wrapper from "./Wrapper";
 
 const CAPS = [
   {
@@ -29,7 +30,7 @@ export default function About() {
       id="about"
       className="py-[120px] bg-bg-1 border-t border-b border-line-soft"
     >
-      <div className="max-w-maxw mx-auto px-5 sm:px-8">
+      <Wrapper className="">
         <div className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-flame-1 inline-flex items-center gap-[9px] mb-[18px] font-medium before:content-[''] before:w-[14px] before:h-[1px] before:bg-flame-1 before:inline-block">The Story</div>
         <div className="grid grid-cols-2 gap-[70px] items-start max-[900px]:grid-cols-1 max-[900px]:gap-11">
           <Reveal>
@@ -58,7 +59,7 @@ export default function About() {
             </div>
           </Reveal>
         </div>
-      </div>
+      </Wrapper>
     </section>
   );
 }

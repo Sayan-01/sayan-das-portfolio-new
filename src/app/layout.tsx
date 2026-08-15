@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { LenisOptions } from "lenis";
+import ReactLenis from "lenis/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,16 +13,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lenisOptions: LenisOptions = {
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // A common easing function
+    smoothWheel: true,
+  };
   return (
     <html
       lang="en"
       className={` h-full antialiased dark`}
     >
       <body
-        className="min-h-full flex flex-col dark"
+        className="min-h-full flex flex-col dark box"
         cz-shortcut-listen="true"
       >
-        {children}
+        <ReactLenis
+          root
+        >
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );

@@ -16,10 +16,10 @@ const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-bg text-text relative">
+    <main className="min-h-screen w-full overflow-x-clip bg-bg text-text relative box">
       <div className="grain" aria-hidden="true"></div>
       <Navbar />
-      <main className="relative z-10 flex flex-col">
+      <main className="relative z-10 flex flex-col box">
         <Hero />
         <About />
         <TechStack />

@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import Wrapper from "./Wrapper";
 
 const TECH = ["React", "Next.js", "Node.js", "MongoDB", "TypeScript", "Docker", "AWS", "Figma"];
 
@@ -6,7 +7,10 @@ export default function Hero() {
   const items = [...TECH, ...TECH];
 
   return (
-    <section id="hero" className="pt-[168px] pb-[90px] overflow-hidden relative">
+    <section
+      id="hero"
+      className="pt-42 pb-22.5 overflow-hidden relative min-h-dvh flex flex-col flex-1 justify-center align-center"
+    >
       <div
         className="absolute -inset-x-[10%] -top-[10%] bottom-auto h-[900px] -z-10 pointer-events-none blur-[10px] animate-drift"
         style={{
@@ -15,14 +19,15 @@ export default function Hero() {
         }}
         aria-hidden="true"
       ></div>
-      <div className="max-w-maxw mx-auto px-5 sm:px-8 grid grid-cols-[1.15fr_0.85fr] gap-14 items-center max-[960px]:grid-cols-1">
+      <Wrapper className="grid grid-cols-[1.15fr_0.85fr] gap-14 items-center max-[960px]:grid-cols-1">
         <div>
           <div className="font-mono text-text-faint text-[15px] mb-1.5">Hey, I&apos;m</div>
           <h1 className="text-[clamp(48px,8vw,92px)] text-text font-bold tracking-[-0.02em] leading-[1.04] font-display">
             Sayan <span className="bg-[linear-gradient(100deg,var(--color-flame-1),var(--color-amber)_55%,var(--color-flame-2))] bg-clip-text text-transparent">Das</span>
           </h1>
           <p className="font-display font-medium text-[clamp(18px,2.4vw,26px)] text-text-dim mt-[18px] max-w-[640px]">
-            A <b className="text-text font-semibold">Full-Stack Developer</b>, <b className="text-text font-semibold">Product Designer</b> &amp; <b className="text-text font-semibold">Startup Co-founder</b> — turning ambitious ideas into shipped software.
+            A <b className="text-text font-semibold">Full-Stack Developer</b>, <b className="text-text font-semibold">Product Designer</b> &amp;{" "}
+            <b className="text-text font-semibold">Startup Co-founder</b> — turning ambitious ideas into shipped software.
           </p>
           <p className="mt-[22px] text-text-dim text-[16px] max-w-[540px] leading-[1.7]">
             I&apos;m a 3rd-year CSE student who doesn&apos;t just code — I build ecosystems. From co-founding startups to shipping production-ready AI SaaS, I bridge the gap between complex
@@ -81,7 +86,7 @@ export default function Hero() {
             </div>
           </div>
         </Reveal>
-      </div>
+      </Wrapper>
 
       <div className="mt-20 border-t border-b border-line-soft py-5 overflow-hidden">
         <div
@@ -90,7 +95,19 @@ export default function Hero() {
         >
           <div className="flex gap-10 whitespace-nowrap w-max animate-scroll">
             {items.map((t, i) => (
-              <span key={i} className="font-mono text-[13px] tracking-[0.08em] text-text-faint uppercase">
+              <span
+                key={i}
+                className="font-mono text-[13px] tracking-[0.08em] text-text-faint uppercase"
+              >
+                {t}
+                <span className="text-flame-1"> ✦ </span>
+              </span>
+            ))}
+            {items.map((t, i) => (
+              <span
+                key={i}
+                className="font-mono text-[13px] tracking-[0.08em] text-text-faint uppercase"
+              >
                 {t}
                 <span className="text-flame-1"> ✦ </span>
               </span>

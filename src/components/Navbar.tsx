@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Wrapper from "./Wrapper";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[500] bg-bg/72 backdrop-blur-[14px] border-b border-line-soft">
-      <div className="max-w-maxw mx-auto py-[18px] px-8 flex items-center justify-between">
+      <Wrapper className="py-[18px] flex items-center justify-between">
         <a
           href="#hero"
           className="font-mono font-medium text-[17px] tracking-[0.02em] focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
@@ -79,7 +80,7 @@ export default function Navbar() {
             <span className="w-[22px] h-[2px] bg-text block"></span>
           </button>
         </div>
-      </div>
+      </Wrapper>
     </header>
   );
 }

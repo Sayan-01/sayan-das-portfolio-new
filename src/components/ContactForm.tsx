@@ -17,7 +17,7 @@ export default function ContactForm() {
 
     const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:hello@sayandas.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sayandas61668@gmail.com?subject=${subject}&body=${body}`;
     setNote("Opening your email client…");
   }
 

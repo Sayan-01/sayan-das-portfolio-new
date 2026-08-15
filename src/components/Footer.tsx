@@ -1,7 +1,9 @@
+import Wrapper from "./Wrapper";
+
 export default function Footer() {
   return (
     <footer className="border-t border-line-soft py-11">
-      <div className="max-w-maxw mx-auto px-5 sm:px-8 flex justify-between items-center flex-wrap gap-4">
+      <Wrapper className="flex justify-between items-center flex-wrap gap-4">
         <a
           href="#hero"
           className="font-mono font-medium text-[15px] tracking-[0.02em] focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
@@ -29,7 +31,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-text-faint text-[13px] font-mono">© 2026 Sayan Das. Built with intent.</p>
-      </div>
+      </Wrapper>
     </footer>
   );
 }
