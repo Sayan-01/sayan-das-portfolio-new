@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="pt-42 pb-22.5 overflow-hidden relative min-h-dvh flex flex-col flex-1 justify-center align-center"
+      className="md:pt-42 pt-24 pb-22.5 overflow-hidden relative min-h-dvh flex flex-col flex-1 justify-center align-center"
     >
       <div
         className="absolute -inset-x-[10%] -top-[10%] bottom-auto h-[900px] -z-10 pointer-events-none blur-[10px] animate-drift"

@@ -28,7 +28,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-[120px]"
+      className="py-20 md:py-30"
     >
       <Wrapper>
         <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">

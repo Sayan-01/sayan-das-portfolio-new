@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import ContactForm from "./ContactForm";
 import Wrapper from "./Wrapper";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -25,30 +26,30 @@ export default function Contact() {
               sayandas61668@gmail.com
             </a>
             <div className="flex gap-4.5 mt-[36px]">
-              <a
-                href="#"
+              <Link
+                href="https://github.com/Sayan-01"
                 target="_blank"
                 rel="noopener"
                 className="font-mono text-[13px] text-text-dim border border-line py-[9px] px-4 rounded-full transition-colors duration-200 ease-in-out hover:text-flame-1 hover:border-flame-1 focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
               >
                 GitHub
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/sayandas-s1"
                 target="_blank"
                 rel="noopener"
                 className="font-mono text-[13px] text-text-dim border border-line py-[9px] px-4 rounded-full transition-colors duration-200 ease-in-out hover:text-flame-1 hover:border-flame-1 focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
               >
                 LinkedIn
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://x.com/sayandas_dev"
                 target="_blank"
                 rel="noopener"
                 className="font-mono text-[13px] text-text-dim border border-line py-[9px] px-4 rounded-full transition-colors duration-200 ease-in-out hover:text-flame-1 hover:border-flame-1 focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
               >
-                X / Twitter
-              </a>
+                X <span className="hidden sm:inline">/ Twitter</span>
+              </Link>
             </div>
           </div>
         </Reveal>

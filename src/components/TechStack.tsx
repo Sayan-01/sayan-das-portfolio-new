@@ -11,11 +11,30 @@ const GROUPS = [
   { title: "Design", items: ["Figma", "Design Systems", "Prototyping", "SEO"] },
 ];
 
+const ICONS = [
+  { name: "React",      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js",    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "JavaScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "Node.js",    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Python",     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "C++",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+  { name: "MongoDB",    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "Docker",     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "AWS",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+  { name: "Figma",      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Tailwind",   src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Astro",      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg", white: true },
+  { name: "Express",    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", white:true },
+  { name: "Git",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+];
+
 export default function TechStack() {
   return (
     <section
       id="stack"
-      className="py-[120px]"
+      className="py-20 md:py-30"
     >
       <Wrapper>
         <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">
@@ -53,6 +72,30 @@ export default function TechStack() {
             ))}
           </div>
         </Reveal>
+
+        {/* Marquee strip */}
+        <div className="relative mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_12%,black_88%,transparent_100%)]">
+          <div className="flex w-max gap-10 animate-scroll border border-line py-6">
+            {[...ICONS, ...ICONS].map((icon, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-2.5 shrink-0 group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center opacity-40 group-hover:opacity-80 transition-opacity duration-300 grayscale group-hover:grayscale-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={icon.src}
+                    alt={icon.name}
+                    width={36}
+                    height={36}
+                    className={icon.white ? "invert" : ""}
+                  />
+                </div>
+                <span className="font-mono text-[10px] text-text-faint tracking-wide group-hover:text-text-dim transition-colors duration-300">{icon.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </Wrapper>
     </section>
   );

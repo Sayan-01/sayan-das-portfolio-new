@@ -36,7 +36,7 @@ export default function Journey() {
   return (
     <section
       id="journey"
-      className="py-[120px] bg-bg-1 border-t border-b border-line-soft shell"
+      className="py-20 md:py-30 bg-bg-1 border-t border-b border-line-soft shell"
     >
       <Wrapper className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
         <div className="lg:sticky lg:top-28 lg:self-start space-y-5">
@@ -63,14 +63,10 @@ export default function Journey() {
                 className={`flex flex-col ${index === 0 ? "pr-4" : index === 2 ? "pl-4" : "px-4"}`}
               >
                 <Reveal>
-                  <div className="font-display text-[32px] font-bold text-text tracking-tight leading-none mb-1.5">
-                    {item.num}
-                  </div>
+                  <div className="font-display text-[32px] font-bold text-text tracking-tight leading-none mb-1.5">{item.num}</div>
                 </Reveal>
                 <Reveal>
-                  <div className="font-mono text-[10px] tracking-[0.08em] uppercase text-text-faint leading-[1.4] whitespace-pre-line">
-                    {item.label}
-                  </div>
+                  <div className="font-mono text-[10px] tracking-[0.08em] uppercase text-text-faint leading-[1.4] whitespace-pre-line">{item.label}</div>
                 </Reveal>
               </div>
             ))}
