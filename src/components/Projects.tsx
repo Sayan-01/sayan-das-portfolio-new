@@ -11,7 +11,7 @@ const PROJECTS = [
     title: "Nexus AI",
     desc: "An AI-powered SaaS that turns messy meeting notes into structured, actionable plans — built solo from database schema to onboarding flow.",
     tags: ["Next.js", "PostgreSQL", "OpenAI API", "Stripe"],
-    gradient: "bg-[#A987FE]",
+    gradient: "bg-[linear-gradient(135deg,#ff6a2a_0%,#b45cff_45%,#7667ff_100%)]",
     images: ["/projects/project_1/image.png", "/projects/project_1/image1.png", "/projects/project_1/image2.png", "/projects/project_1/image3.png"],
   },
   {
@@ -20,7 +20,7 @@ const PROJECTS = [
     title: "Buildr",
     desc: "A drag-and-drop site builder with AI-assisted page generation, architected during my time co-founding Azeorex — used to launch 5+ client applications.",
     tags: ["React", "Node.js", "MongoDB", "AWS"],
-    gradient: "bg-gradient-to-br from-amber-500 via-orange-600 to-amber-900",
+    gradient: "bg-[linear-gradient(0deg,#3048a8_0%,#673d91_50%,#ff5a2f_100%)]",
     images: ["/projects/project_2/image.png", "/projects/project_2/image1.png", "/projects/project_2/image2.png", "/projects/project_2/image3.png"],
   },
   {
@@ -29,7 +29,7 @@ const PROJECTS = [
     title: "PixelForge Storefronts",
     desc: "Pixel-perfect marketing pages shipped from Figma to production, tuned for Core Web Vitals and organic search performance.",
     tags: ["Astro", "React", "Figma", "SEO"],
-    gradient: "bg-[#A987FE]",
+    gradient: "bg-[linear-gradient(135deg,#3048a8_0%,#673d91_50%,#ff5a2f_100%)]",
     images: ["/projects/project_3/image.png"],
   },
 ];
@@ -44,13 +44,11 @@ function ProjectCarousel({ images, title, gradient }: { images: string[]; title:
   return (
     <div className="relative group/carousel w-full">
       {/* Browser mockup card */}
-      <div className={`relative w-full aspect-[16/10] rounded-xl p-2 overflow-hidden ${gradient} flex flex-col group shadow-2xl`}>
-        
-
+      <div className={`relative w-full group aspect-[16/10]  p-2  ${gradient} flex flex-col rounded-2xl`}>
         {/* Image container */}
         <div className="relative flex-1 w-full bg-stone-950 overflow-hidden rounded-xl">
           {/* Fallback gradient background */}
-          <div className={`absolute inset-0 opacity-15 ${gradient}`} />
+          <div className={`absolute inset-0 opacity-15 ${gradient} rounded-xl`} />
 
           {/* Screenshot images stack */}
           {images.map((img, i) => (
@@ -70,19 +68,19 @@ function ProjectCarousel({ images, title, gradient }: { images: string[]; title:
         </div>
 
         {/* Navigation Overlays (visible on hover) */}
-        {len > 1 && (
+        {len > 0 && (
           <>
             <button
               onClick={prev}
               aria-label="Previous image"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-stone-950/70 border border-stone-800 text-stone-300 hover:bg-stone-950 hover:text-orange-500 hover:border-orange-500 opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer"
+              className="absolute md:left-6 left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center md:w-10 md:h-10 w-8 h-8 rounded-full bg-stone-950/50 border border-stone-800 text-stone-300 backdrop-blur-xl group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer"
             >
               <ChevronLeft size={16} />
             </button>
             <button
               onClick={next}
               aria-label="Next image"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-stone-950/70 border border-stone-800 text-stone-300 hover:bg-stone-950 hover:text-orange-500 hover:border-orange-500 opacity-0 group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer"
+              className="absolute md:right-6 right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center md:w-10 md:h-10 w-8 h-8 rounded-full bg-stone-950/50 border border-stone-800 text-stone-300 backdrop-blur-xl group-hover/carousel:opacity-100 transition-all duration-300 cursor-pointer"
             >
               <ChevronRight size={16} />
             </button>
@@ -91,7 +89,7 @@ function ProjectCarousel({ images, title, gradient }: { images: string[]; title:
       </div>
 
       {/* Pagination indicators */}
-      {len > 1 && (
+      {len > 0 && (
         <div className="flex items-center justify-center gap-1.5 mt-4">
           {images.map((_, i) => (
             <button
@@ -111,7 +109,7 @@ export default function Projects() {
   return (
     <section
       id="work"
-      className="py-20 md:pb-30"
+      className="pb-20 md:pb-30"
     >
       <Wrapper>
         <div className="flex justify-between items-end gap-10  flex-wrap">

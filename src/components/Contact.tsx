@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="pt-[130px] pb-[100px]"
+      className="md:pt-[130px] pt-[60px] pb-[100px]"
     >
       <Wrapper className="grid grid-cols-2 gap-[70px] max-[900px]:grid-cols-1 max-[900px]:gap-[46px]">
         <Reveal>
