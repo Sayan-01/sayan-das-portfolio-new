@@ -1,224 +1,85 @@
-import { motion } from "motion/react";
-import { ExternalLink, Code2, Cpu, Globe, ChevronRight, ChevronLeft } from "lucide-react";
-import { ReactNode, useState } from "react";
-import { BsGithub } from "react-icons/bs";
-import Wrapper from "./Wrapper";
-import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 
-interface Project {
-  title: string;
-  description: string;
-  problem: string;
-  solution: string;
-  impact: string;
-  tech: string[];
-  achievements: string[];
-  liveLink?: string;
-  githubLink?: string;
-  images: string[];
-  icon: ReactNode;
-}
-
-const projects: Project[] = [
+const PROJECTS = [
   {
-    title: "Azeorex AI Builder",
-    description: "Full-stack AI-powered SaaS platform that enables users to create and publish websites through a custom editor.",
-    problem: "Website building is often slow and requires manual coding for complex layouts.",
-    solution: "Engineered a JSON node-tree architecture using tree data structures for real-time editing.",
-    impact: "Increased user website-creation speed by 60% with integrated AI APIs.",
-    tech: ["Next.js", "PostgreSQL", "OpenAI", "TypeScript", "Node.js", "Zod", "Framer Motion"],
-    achievements: [
-      "Built a custom drag-and-drop editor from scratch without third-party library dependencies",
-      "Integrated OpenAI/Anthropic APIs to generate structured JSON layouts mapped to component trees",
-      "Developed a secure marketplace with role-based authentication for templates",
-    ],
-    liveLink: "https://azeorex.com",
-    githubLink: "#",
-    images: ["projects/project_1/image1.png", "projects/project_1/image2.png", "projects/project_1/image3.png"],
-    icon: <Globe className="h-6 w-6" />,
+    cover: "radial-gradient(120% 120% at 15% 15%, #ff8a4d, #ff3d1f 45%, #4a1207 100%)",
+    idx: "01 / Product",
+    eyebrow: "AI SaaS",
+    title: "Nexus AI",
+    desc: "An AI-powered SaaS that turns messy meeting notes into structured, actionable plans — built solo from database schema to onboarding flow.",
+    tags: ["Next.js", "PostgreSQL", "OpenAI API", "Stripe"],
   },
   {
-    title: "Persona-AI",
-    description: "AI Content Generator and Analytical Tools for multi-platform content creation.",
-    problem: "Writing, generating, and enhancing content across platforms was not easily possible.",
-    solution: "Persona-driven AI that writes and enhances content instantly according to platform and creator's style.",
-    impact: "Improved first-session completion rates through a personalized, dynamic onboarding flow.",
-    tech: ["Next.js 14", "PostgreSQL", "Gemini API", "TypeScript", "Tailwind CSS", "Polar"],
-    achievements: [
-      "Designed a personalized onboarding flow with dynamic preference capture and behavioral analytics",
-      "Integrated advanced user features like persona customization and subscription management",
-      "Built dedicated modules for YouTube optimization and cross-platform growth insights",
-    ],
-    liveLink: "#",
-    githubLink: "#",
-    images: ["projects/project_2/image1.png", "projects/project_2/image2.png", "projects/project_2/image3.png"],
-    icon: <Cpu className="h-6 w-6" />,
+    cover: "radial-gradient(120% 120% at 85% 20%, #ffcf6b, #ff5a1f 50%, #240c02 100%)",
+    idx: "02 / Platform",
+    eyebrow: "Agency Build",
+    title: "Buildr",
+    desc: "A drag-and-drop site builder with AI-assisted page generation, architected during my time co-founding Azeorex — used to launch 5+ client applications.",
+    tags: ["React", "Node.js", "MongoDB", "AWS"],
+  },
+  {
+    cover: "radial-gradient(120% 120% at 30% 85%, #ff5a1f, #7a1c07 55%, #0a0908 100%)",
+    idx: "03 / Web",
+    eyebrow: "Client Work",
+    title: "PixelForge Storefronts",
+    desc: "Pixel-perfect marketing pages shipped from Figma to production, tuned for Core Web Vitals and organic search performance.",
+    tags: ["Astro", "React", "Figma", "SEO"],
   },
 ];
-
-const ImageGallery = ({ images, title, liveLink, githubLink }: { images: string[]; title: string; liveLink?: string; githubLink?: string }) => {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  return (
-    <div className="flex flex-col gap-4 w-full">
-      {/* Main Large Image */}
-      <div className="relative liquid-glass rounded-3xl aspect-17/11 group shadow-2xl p-2">
-        <motion.img
-          key={activeIdx}
-          
-          transition={{ duration: 0.8 }}
-          src={images[activeIdx]}
-          alt={`${title} main`}
-          className="w-full h-full object-cover  transition-all duration-700 rounded-2xl"
-          referrerPolicy="no-referrer"
-        />
-
-        {/* Navigation Overlays */}
-        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="flex gap-4">
-            {liveLink && liveLink !== "#" && (
-              <a
-                href={liveLink}
-                className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
-              >
-                <ExternalLink className="h-5 w-5" />
-              </a>
-            )}
-            {githubLink && githubLink !== "#" && (
-              <a
-                href={githubLink}
-                className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all"
-              >
-                <BsGithub className="h-5 w-5" />
-              </a>
-            )}
-          </div>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
-              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
-              className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Thumbnails */}
-      <div className="grid grid-cols-3 gap-4">
-        {images.map((img, i) => (
-          <div
-            key={i}
-            onClick={() => setActiveIdx(i)}
-            className={`cursor-pointer md:rounded-2xl rounded-xl overflow-hidden liquid-glass transition-all duration-300  ${
-              activeIdx === i ? "border-white/60 opacity-100" : "opacity-40 hover:opacity-100"
-            }`}
-          >
-            <img
-              src={img}
-              alt={`${title} thumb ${i}`}
-              className="w-full h-full object-cover hover:brightness-100 transition-all"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export default function Projects() {
   return (
     <section
-      id="projects"
-      className="md:py-16 py-12 px-0 lg:px-16"
+      id="work"
+      className="py-[120px]"
     >
-      <SectionHeader
-        badge="The Portfolio"
-        title="Featured Projects"
-        description="A selection of my best work, from AI builders to personalization engines."
-      />
+      <div className="max-w-maxw mx-auto px-5 sm:px-8">
+        <div className="flex justify-between items-end gap-10 mb-14 flex-wrap">
+          <div>
+            <div className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-flame-1 inline-flex items-center gap-[9px] mb-[18px] font-medium before:content-[''] before:w-[14px] before:h-[1px] before:bg-flame-1 before:inline-block">Selected Work</div>
+            <Reveal>
+              <h2 className="text-[clamp(30px,4vw,44px)] max-w-[600px] font-bold font-display text-text">Featured projects.</h2>
+            </Reveal>
+          </div>
+          <Reveal>
+            <p className="text-text-dim max-w-[360px] text-[15px] pb-1">A few products I&apos;ve architected, designed and shipped end-to-end.</p>
+          </Reveal>
+        </div>
 
-      <Wrapper>
-        <div className="grid grid-cols-1 gap-32">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-24 items-start`}
-            >
-              {/* Image Side */}
-              <div className="flex-1 w-full relative">
-                <ImageGallery
-                  images={project.images}
-                  title={project.title}
-                  liveLink={project.liveLink}
-                  githubLink={project.githubLink}
-                />
+        {PROJECTS.map((p) => (
+          <Reveal key={p.title}>
+            <div className="grid grid-cols-[0.9fr_1.1fr] gap-0 border border-line rounded-custom overflow-hidden mb-[26px] last:mb-0 bg-bg-1 max-[820px]:grid-cols-1">
+              <div
+                className="min-h-[280px] relative overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:from-[40%] after:to-black/35"
+                style={{ background: p.cover }}
+              >
+                <span className="absolute top-5 left-[22px] font-mono text-[13px] text-white/75 tracking-[0.08em]">{p.idx}</span>
               </div>
-
-              {/* Content Side */}
-              <div className="flex-1 space-y-8">
-                <div className="flex items-center gap-4">
-                  <div className="liquid-glass p-3 rounded-2xl text-accent-blue shadow-[0_0_15px_rgba(59,130,246,0.2)]">{project.icon}</div>
-                  <h3 className="text-4xl font-heading italic text-foreground group-hover:text-accent-blue transition-colors duration-500">{project.title}</h3>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="liquid-glass p-4 rounded-2xl">
-                      <p className="text-xs font-bold text-foreground/40 uppercase mb-1">Problem</p>
-                      <p className="text-sm text-foreground/80">{project.problem}</p>
-                    </div>
-                    <div className="liquid-glass p-4 rounded-2xl">
-                      <p className="text-xs font-bold text-foreground/40 uppercase mb-1">Solution</p>
-                      <p className="text-sm text-foreground/80">{project.solution}</p>
-                    </div>
-                    <div className="liquid-glass p-4 rounded-2xl">
-                      <p className="text-xs font-bold text-foreground/40 uppercase mb-1">Impact</p>
-                      <p className="text-sm text-foreground/80">{project.impact}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-foreground">Key Achievements</h4>
-                  <ul className="space-y-2">
-                    {project.achievements.map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-foreground/60 font-body text-sm"
-                      >
-                        <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-foreground shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
+              <div className="py-[38px] px-10 flex flex-col justify-center">
+                <div className="font-mono text-[12px] text-text-faint tracking-[0.1em] uppercase mb-2.5">{p.eyebrow}</div>
+                <h3 className="text-[26px] mb-3 font-bold font-display text-text">{p.title}</h3>
+                <p className="text-text-dim text-[15px] leading-[1.7] mb-5">{p.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-[22px]">
+                  {p.tags.map((t) => (
                     <span
+                      className="font-mono text-[12px] py-[6px] px-3 border border-line rounded-full text-text-dim bg-bg-1 focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
                       key={t}
-                      className="px-3 py-1 bg-accent-blue/5 border border-accent-blue/20 rounded-full text-xs text-accent-blue/80 font-body hover:bg-accent-blue hover:text-white transition-all duration-300"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-[14px] font-semibold text-text transition-all duration-200 ease-in-out hover:gap-3 hover:text-flame-1 focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
+                >
+                  View project &rarr;
+                </a>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </Wrapper>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }

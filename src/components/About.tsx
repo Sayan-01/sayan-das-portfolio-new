@@ -1,83 +1,64 @@
-import { motion } from "motion/react";
-import Wrapper from "./Wrapper";
-import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
+
+const CAPS = [
+  {
+    num: "01 · Frontend",
+    title: "Interfaces",
+    desc: "React & Next.js interfaces built for speed, accessibility and pixel-precision.",
+  },
+  {
+    num: "02 · Backend",
+    title: "Systems",
+    desc: "APIs, databases and auth flows designed to hold up under real traffic.",
+  },
+  {
+    num: "03 · DevOps",
+    title: "Shipping",
+    desc: "CI/CD, containers and cloud deploys that get code to production, reliably.",
+  },
+  {
+    num: "04 · Design",
+    title: "Judgment",
+    desc: "Design and DSA-sharpened problem solving behind every product decision.",
+  },
+];
 
 export default function About() {
   return (
     <section
       id="about"
-      className="md:py-16 py-12 md:pt-44 pt-24 bg-background transition-colors duration-500"
+      className="py-[120px] bg-bg-1 border-t border-b border-line-soft"
     >
-      <SectionHeader
-        badge="The Story"
-        title="Beyond the Code"
-        description="A glimpse into the mind of a developer who builds for impact."
-      />
-      <Wrapper>
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Profile Image / Visual */}
-          <div className="">
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="relative h-full w-full liquid-glass rounded-4xl overflow-hidden border border-foreground/10">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover transition-all duration-700"
-                >
-                  <source
-                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="max-md:w-full md:flex-1 space-y-8">
-            <div className="space-y-4">
-              <h3 className="text-4xl font-heading italic text-foreground leading-tight">
-                I build <span className="text-accent-blue">ecosystems,</span> <br />
-                not just code.
-              </h3>
-              <p className="text-lg text-foreground/80 font-body font-light leading-relaxed">
-                I'm a 3rd year CSE student who doesn't just code—I build ecosystems. From co-founding startups to shipping production-ready AI SaaS, I bridge the gap between complex engineering and
-                human-centric design.
+      <div className="max-w-maxw mx-auto px-5 sm:px-8">
+        <div className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-flame-1 inline-flex items-center gap-[9px] mb-[18px] font-medium before:content-[''] before:w-[14px] before:h-[1px] before:bg-flame-1 before:inline-block">The Story</div>
+        <div className="grid grid-cols-2 gap-[70px] items-start max-[900px]:grid-cols-1 max-[900px]:gap-11">
+          <Reveal>
+            <div>
+              <p className="font-display text-[clamp(26px,3.4vw,38px)] leading-[1.18] font-semibold text-text">
+                I don&apos;t just write code — <span className="text-flame-1">I build ecosystems</span> that connect engineering with people.
+              </p>
+              <p className="text-text-dim text-[16px] leading-[1.8] mt-[26px]">
+                Somewhere between a terminal window and a Figma file, I found the thing I actually care about: building things end-to-end. I&apos;ve founded a web agency, shipped a drag-and-drop AI
+                page builder, and I&apos;m currently deep in production-grade AI SaaS — always chasing the point where solid engineering and thoughtful design meet.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="liquid-glass p-6 rounded-3xl">
-                <h4 className="text-foreground font-semibold mb-2">The Difference</h4>
-                <p className="text-sm text-foreground/60 font-body">Unlike many students, I've lived the startup lifecycle—from co-founding to handling production users.</p>
-              </div>
-              <div className="liquid-glass p-6 rounded-3xl">
-                <h4 className="text-foreground font-semibold mb-2">The Goal</h4>
-                <p className="text-sm text-foreground/60 font-body">Currently seeking internships where I can contribute to high-impact products and push the boundaries of AI.</p>
-              </div>
+          </Reveal>
+          <Reveal>
+            <div className="grid grid-cols-2 gap-[1px] bg-line border border-line rounded-custom overflow-hidden">
+              {CAPS.map((c) => (
+                <div
+                  className="bg-bg py-7 px-6"
+                  key={c.num}
+                >
+                  <div className="font-mono text-flame-1 text-[12.5px] tracking-[0.1em]">{c.num}</div>
+                  <h3 className="text-[18px] mt-3.5 mb-2 font-display font-semibold text-text">{c.title}</h3>
+                  <p className="text-[13.5px] text-text-dim leading-[1.6]">{c.desc}</p>
+                </div>
+              ))}
             </div>
-
-            <div className="flex md:items-center  md:gap-8 max-md:justify-between md:pt-4">
-              <div>
-                <p className="md:text-3xl text-xl font-heading italic text-accent-blue">8.03 CGPA</p>
-                <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">B.Tech CSE</p>
-              </div>
-              <div className="h-12 w-px bg-foreground/10" />
-              <div>
-                <p className="md:text-3xl text-xl font-heading italic text-accent-cyan">Full-Stack</p>
-                <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">MERN + Nextjs</p>
-              </div>
-              <div className="h-12 w-px bg-foreground/10" />
-              <div>
-                <p className="md:text-3xl text-xl font-heading italic text-accent-purple">Ex Co-Founder</p>
-                <p className="text-xs text-foreground/40 uppercase font-bold tracking-widest">Azeorex Agency</p>
-              </div>
-            </div>
-          </div>
+          </Reveal>
         </div>
-      </Wrapper>
+      </div>
     </section>
   );
 }
