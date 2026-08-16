@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Wrapper from "./Wrapper";
 import Reveal from "./Reveal";
+import Link from "next/link";
 
 const PROJECTS = [
   {
@@ -13,6 +14,7 @@ const PROJECTS = [
     tags: ["Next.js 14", "PostgreSQL", "TypeScript", "Polar"],
     gradient: "bg-[linear-gradient(0deg,#3048a8_0%,#673d91_50%,#ff5a2f_100%)]",
     images: ["/projects/project_3/image.png", "/projects/project_3/image1.png"],
+    link: "https://sdx26.vercel.app/",
   },
   {
     index: "02",
@@ -22,6 +24,7 @@ const PROJECTS = [
     tags: ["Next.js 14", "PostgreSQL", "Gemini API", "TypeScript"],
     gradient: "bg-[linear-gradient(135deg,#ff6a2a_0%,#b45cff_45%,#7667ff_100%)]",
     images: ["/projects/project_2/image.png", "/projects/project_2/image2.png", "/projects/project_2/image3.png"],
+    link: "https://personaai-01.vercel.app/",
   },
 
   {
@@ -32,6 +35,7 @@ const PROJECTS = [
     tags: ["Next.js", "Multi-Model AI", "Figma", "Node.js", "Polar"],
     gradient: "bg-[linear-gradient(135deg,#3048a8_0%,#673d91_50%,#ff5a2f_100%)]",
     images: ["/projects/project_1/image.png", "/projects/project_1/image2.png", "/projects/project_1/image3.png"],
+    link: "https://azeorex.vercel.app/",
   },
 ];
 
@@ -132,8 +136,7 @@ export default function Projects() {
             return (
               <div
                 key={p.title}
-                className={`grid md:grid-cols-2 gap-14 md:gap-16 items-center py-10   "
-                  }`}
+              className="grid md:grid-cols-2 gap-14 md:gap-16 items-center py-10 max-sm:border-b border-line last:border-b-0"
               >
                 <div className={reverse ? "md:order-2" : "md:order-1"}>
                   <ProjectCarousel
@@ -160,12 +163,13 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <a
-                      href="#"
+                    <Link
+                      target="_blank"
+                      href={`${p.link}`}
                       className="inline-flex items-center gap-1.5 text-sm font-semibold text-stone-100 hover:text-orange-500 hover:gap-2.5 transition-all"
                     >
                       View project <ArrowUpRight size={16} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

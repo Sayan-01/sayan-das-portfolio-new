@@ -36,6 +36,8 @@ export default function Hero() {
           <div className="flex gap-3.5 mt-[34px] flex-wrap">
             <a
               href="https://drive.google.com/file/d/1bs5jp2I56KokRZ5Oitwo6c7thu37mvRi/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-body font-semibold text-[14.5px] py-[14px] px-[26px] rounded-full inline-flex items-center gap-[9px] border border-transparent cursor-pointer transition-all duration-250 ease-in-out whitespace-nowrap bg-gradient-to-br from-flame-1 to-flame-2 text-bg shadow-[0_8px_30px_-8px_rgba(255,90,31,0.32)] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.32)] focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
             >
               My resume →
