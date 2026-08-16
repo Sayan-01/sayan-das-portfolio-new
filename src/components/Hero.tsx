@@ -20,7 +20,7 @@ export default function Hero() {
         aria-hidden="true"
       ></div>
       <Wrapper className="grid grid-cols-[1.15fr_0.85fr] gap-14 items-center max-[960px]:grid-cols-1">
-        <div>
+        <div className="max-md:min-h-[90%]">
           <div className="font-mono text-text-faint text-[15px] mb-1.5">Hey, I&apos;m</div>
           <h1 className="text-[clamp(48px,8vw,92px)] text-text font-bold tracking-[-0.02em] leading-[1.04] font-display">
             Sayan <span className="bg-[linear-gradient(100deg,var(--color-flame-1),var(--color-amber)_55%,var(--color-flame-2))] bg-clip-text text-transparent">Das</span>
@@ -35,10 +35,10 @@ export default function Hero() {
           </p>
           <div className="flex gap-3.5 mt-[34px] flex-wrap">
             <a
-              href="#work"
+              href="https://drive.google.com/file/d/1bs5jp2I56KokRZ5Oitwo6c7thu37mvRi/view?usp=sharing"
               className="font-body font-semibold text-[14.5px] py-[14px] px-[26px] rounded-full inline-flex items-center gap-[9px] border border-transparent cursor-pointer transition-all duration-250 ease-in-out whitespace-nowrap bg-gradient-to-br from-flame-1 to-flame-2 text-bg shadow-[0_8px_30px_-8px_rgba(255,90,31,0.32)] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.32)] focus-visible:outline-2 focus-visible:outline-amber focus-visible:outline-offset-3"
             >
-              View my work →
+              My resume →
             </a>
             <a
               href="#contact"

@@ -14,7 +14,7 @@ const ITEMS = [
     date: "Mar 2024 — Mar 2025",
     title: "Co-Founder & Full-Stack Engineer",
     org: "Azeorex Agency",
-    desc: "Founded and led a web agency specializing in full-stack SaaS. Built 5+ client applications and architected a custom drag-and-drop editor with AI-assisted page generation.",
+    desc: "Founded and led a web agency building full-stack SaaS applications. Built 4+ client applications and architected a custom drag-and-drop editor with AI-assisted page generation.",
   },
   {
     active: true,
