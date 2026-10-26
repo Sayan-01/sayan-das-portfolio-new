@@ -61,7 +61,7 @@ export default function Hero() {
             </div>
             <div className="pt-[22px] px-[22px] pb-[26px] font-mono text-[13.5px] text-text-dim min-h-[230px]">
               <div>
-                <span className="text-flame-1">➜</span> whoami
+                <span className="text-flame-1">➜</span> who am i
               </div>
               <div className="text-text mt-[3px] mb-3 pl-4">
                 Full-Stack Developer &amp; Product Designer
