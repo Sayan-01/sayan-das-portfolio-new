@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LenisOptions } from "lenis";
 import ReactLenis from "lenis/react";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Sayan Das — Full-Stack Developer & Product Designer",
@@ -32,6 +33,7 @@ export default function RootLayout({
         >
           {children}
         </ReactLenis>
+        <Analytics/>
       </body>
     </html>
   );
